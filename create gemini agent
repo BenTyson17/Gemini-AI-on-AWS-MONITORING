@@ -1,0 +1,20 @@
+#open cloud shell
+
+mkdir devops-agent && cd devops-agent
+python3 -m venv venv
+source venv/bin/activate
+
+# install py ext
+pip install langchain langchain-google-genai langchain-community python-dotenv rich
+
+# create venv file
+cat > .env << EOF
+GOOGLE_API_KEY=paste_your_key_here
+EOF
+
+# Protect your key
+cat > .gitignore << EOF
+.env
+venv/
+__pycache__/
+EOF
